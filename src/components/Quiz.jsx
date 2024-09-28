@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import Header from "./Header";
 import Footer from "./Footer";
-import randomEnglishQuizzes from "../quizQuestions/easy";
-import randomHardEnglishQuizzes from "../quizQuestions/hard";
+import randomSecurityQuizzes from "../quizQuestions/easy";
+import randomHardSecurityQuizzes from "../quizQuestions/hard";
 
 function Quiz() {
-  const easyQuestions = randomEnglishQuizzes;
-  const hardQuestions = randomHardEnglishQuizzes;
+  const easyQuestions = randomSecurityQuizzes;
+  const hardQuestions = randomHardSecurityQuizzes;
 
   const [difficulty, setDifficulty] = useState("easy"); // "easy" or "hard"
   const [questions, setQuestions] = useState(easyQuestions);
@@ -142,7 +142,7 @@ function Quiz() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col justify-between">
+    <div className="min-h-screen flex flex-col justify-between ">
       <Header />
       <div className="flex-1 p-6">
         <h1 className="text-3xl inline">Quiz</h1>{" "}
@@ -267,8 +267,8 @@ function Quiz() {
         {!start && (
           <div className="fixed top-1/2 right-1/2 -translate-y-1/2 translate-x-1/2 p-4 bg-blue-500 dark:bg-slate-700 rounded-lg text-white w-full h-full flex flex-col justify-center items-center gap-4">
             <p className="max-w-[600px] text-center">
-              This is an English language quiz. Your are expected to answer each
-              question within 15 seconds.
+              This is an Digital Security and privacy quiz. Your are expected to
+              answer each question within 15 seconds.
             </p>
             <button
               onClick={() => setStart(true)}

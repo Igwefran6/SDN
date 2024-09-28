@@ -1,94 +1,113 @@
-// Array of harder English language quiz questions
-const hardEnglishQuiz = [
+// Array of harder security and privacy quiz questions
+const hardSecurityQuiz = [
   {
-    question: "Which of the following is a subordinating conjunction?",
-    options: ["And", "Or", "Because", "But"],
-    correct: "Because",
-  },
-  {
-    question: "Identify the sentence that uses the subjunctive mood.",
+    question: "What is a '51% attack' in the context of blockchain technology?",
     options: [
-      "If I was taller, I would play basketball.",
-      "If I were taller, I would play basketball.",
-      "I wish I was taller to play basketball.",
-      "If only I was taller to play basketball.",
-    ],
-    correct: "If I were taller, I would play basketball.",
-  },
-  {
-    question: "Which word is an example of an irregular verb?",
-    options: ["Run", "Walk", "Talk", "Cut"],
-    correct: "Cut",
-  },
-  {
-    question:
-      "What is the correct passive form of 'They are building a new bridge'?",
-    options: [
-      "A new bridge is being built.",
-      "A new bridge will be built.",
-      "A new bridge is built.",
-      "A new bridge was built.",
-    ],
-    correct: "A new bridge is being built.",
-  },
-  {
-    question: "What is the meaning of the word 'antithesis'?",
-    options: [
-      "A direct opposite",
-      "A close similarity",
-      "A type of metaphor",
-      "An argument",
-    ],
-    correct: "A direct opposite",
-  },
-  {
-    question: "Which sentence contains a misplaced modifier?",
-    options: [
-      "Running to the bus stop, my bag fell.",
-      "My bag fell as I ran to the bus stop.",
-      "While I ran to the bus stop, my bag fell.",
-      "I dropped my bag while running to the bus stop.",
-    ],
-    correct: "Running to the bus stop, my bag fell.",
-  },
-  {
-    question: "What is the past perfect tense of 'to go'?",
-    options: ["Had gone", "Went", "Have gone", "Had been going"],
-    correct: "Had gone",
-  },
-  {
-    question:
-      "Identify the sentence that contains a compound-complex sentence structure.",
-    options: [
-      "Although it was raining, we went to the park, and we played soccer.",
-      "We went to the park, and we played soccer.",
-      "Although it was raining, we still went to the park.",
-      "We went to the park to play soccer.",
+      "An attack where 51% of the nodes go offline simultaneously",
+      "An attack where a group controls over 51% of a blockchain's hash rate",
+      "An attack where 51% of digital wallets are compromised",
+      "An attack where 51% of blockchain transactions are reversed",
     ],
     correct:
-      "Although it was raining, we went to the park, and we played soccer.",
+      "An attack where a group controls over 51% of a blockchain's hash rate",
   },
   {
     question:
-      "Which word best describes something that cannot be expressed in words?",
-    options: ["Ineffable", "Infallible", "Invariable", "Indefinite"],
-    correct: "Ineffable",
+      "Which of the following encryption algorithms is most commonly used in securing blockchain transactions?",
+    options: ["AES-256", "SHA-256", "RSA-2048", "MD5"],
+    correct: "SHA-256",
   },
   {
-    question: "Which sentence is grammatically correct?",
+    question:
+      "How does a 'cold wallet' enhance the security of digital currencies?",
     options: [
-      "I could of gone to the store.",
-      "I could have gone to the store.",
-      "I could gone to the store.",
-      "I could had gone to the store.",
+      "By speeding up transactions",
+      "By storing the private keys offline, reducing the risk of hacking",
+      "By generating multiple public addresses",
+      "By encrypting transaction data in real-time",
     ],
-    correct: "I could have gone to the store.",
+    correct:
+      "By storing the private keys offline, reducing the risk of hacking",
   },
-  // Add more hard English questions here
+  {
+    question: "What is 'dusting' in cryptocurrency security?",
+    options: [
+      "A method used to increase transaction speed",
+      "An attack where small amounts of cryptocurrency are sent to expose user identities",
+      "A technique for cleaning corrupted blockchain data",
+      "A process to remove fraudulent transactions from the ledger",
+    ],
+    correct:
+      "An attack where small amounts of cryptocurrency are sent to expose user identities",
+  },
+  {
+    question:
+      "Which of the following privacy-focused cryptocurrencies uses ring signatures to obscure transaction details?",
+    options: ["Bitcoin", "Ethereum", "Monero", "Ripple"],
+    correct: "Monero",
+  },
+  {
+    question:
+      "How can quantum computing pose a threat to the security of digital currencies?",
+    options: [
+      "By increasing the number of transaction verifications required",
+      "By breaking traditional cryptographic algorithms used in blockchain",
+      "By reducing transaction fees drastically",
+      "By accelerating block mining exponentially",
+    ],
+    correct:
+      "By breaking traditional cryptographic algorithms used in blockchain",
+  },
+  {
+    question: "What is a 'Sybil attack' in the context of blockchain networks?",
+    options: [
+      "An attack where multiple nodes are created to outvote other nodes and take control of the network",
+      "An attack that disrupts the consensus mechanism through faulty blocks",
+      "An attack where blockchain transactions are encrypted using false keys",
+      "An attack that targets the miners of the blockchain, reducing their efficiency",
+    ],
+    correct:
+      "An attack where multiple nodes are created to outvote other nodes and take control of the network",
+  },
+  {
+    question:
+      "What is the primary goal of 'zero-knowledge proofs' in digital currency transactions?",
+    options: [
+      "To encrypt transaction amounts for privacy",
+      "To prove ownership of information without revealing the information itself",
+      "To hide transaction fees from the public ledger",
+      "To allow faster transactions with minimal computational power",
+    ],
+    correct:
+      "To prove ownership of information without revealing the information itself",
+  },
+  {
+    question:
+      "Which of the following is a potential privacy risk of decentralized finance (DeFi) platforms?",
+    options: [
+      "The public visibility of all transactions on the blockchain",
+      "The use of private keys for user authentication",
+      "The integration with multi-signature wallets",
+      "The slow verification of transactions",
+    ],
+    correct: "The public visibility of all transactions on the blockchain",
+  },
+  {
+    question:
+      "What is the main vulnerability that smart contracts introduce to blockchain networks?",
+    options: [
+      "Smart contracts are susceptible to DDoS attacks",
+      "Smart contracts cannot be updated once deployed, making them immutable",
+      "Smart contracts can contain coding bugs that lead to security breaches",
+      "Smart contracts lower the overall performance of the blockchain",
+    ],
+    correct:
+      "Smart contracts can contain coding bugs that lead to security breaches",
+  },
 ];
 
-// Function to randomize and export 10 harder English quiz questions
-const getRandomHardQuizzes = (quizArray, numOfQuestions) => {
+// Function to randomize and export 10 hard security quiz questions
+const getRandomQuizzes = (quizArray, numOfQuestions) => {
   // Shuffle the array using the Fisher-Yates algorithm
   for (let i = quizArray.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
@@ -99,7 +118,7 @@ const getRandomHardQuizzes = (quizArray, numOfQuestions) => {
   return quizArray.slice(0, numOfQuestions);
 };
 
-// Export 10 random harder quizzes
-const randomHardEnglishQuizzes = getRandomHardQuizzes(hardEnglishQuiz, 10);
+// Export 10 random hard security quizzes
+const randomHardSecurityQuizzes = getRandomQuizzes(hardSecurityQuiz, 10);
 
-export default randomHardEnglishQuizzes;
+export default randomHardSecurityQuizzes;

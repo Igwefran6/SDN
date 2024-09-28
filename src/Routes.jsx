@@ -34,7 +34,7 @@ const Routes = createBrowserRouter([
     errorElement: <Err404 />,
   },
   {
-    path: "/course-content",
+    path: "/get-started",
     element: <CourseContent />,
     errorElement: <Err404 />,
   },

@@ -11,4 +11,64 @@
     font-size: 16px;
     margin-left: 8px;
   }
+  .shake {
+    color: white;
+    animation-name: shake;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-out;
+  }
+  @keyframes shake {
+    0% {
+      rotate: 16deg;
+    }
+    6.25% {
+      rotate: -14deg;
+    }
+    12.5% {
+      rotate: 12deg;
+    }
+    18.75% {
+      rotate: -10deg;
+    }
+    25% {
+      rotate: 8deg;
+    }
+    31.25% {
+      rotate: -6deg;
+    }
+    37.5% {
+      rotate: 4deg;
+    }
+    43.75% {
+      rotate: -2deg;
+    }
+    50% {
+      rotate: 0deg;
+    }
+    56.25% {
+      rotate: -2deg;
+    }
+    62.5% {
+      rotate: 4deg;
+    }
+    68.75% {
+      rotate: -6deg;
+    }
+    75% {
+      rotate: 8deg;
+    }
+    81.25% {
+      rotate: -10deg;
+    }
+    87.5% {
+      rotate: 12deg;
+    }
+    93.75% {
+      rotate: -14deg;
+    }
+    100% {
+      rotate: 16deg;
+    }
+  }
 }

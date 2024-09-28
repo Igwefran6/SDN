@@ -10,7 +10,7 @@ const CourseContent = () => {
       <Header />
       <div className="container mx-auto p-6 min-h-[80svh]">
         <h1 className="text-4xl font-bold text-center text-blue-700 mb-8">
-          Course Content
+          Get Started
         </h1>
 
         <div className="bg-white shadow-md rounded-lg p-6 mb-8">

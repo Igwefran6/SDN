@@ -3,7 +3,7 @@ import { mdiFacebook, mdiTwitter, mdiGithub } from "@mdi/js";
 
 const Footer = () => {
   return (
-    <footer className="bg-transparent flex  text-white py-4 z-40">
+    <footer className="bg-transparent flex  text-white py-4 z-40 no-copy">
       <div className="container mx-auto text-center w-64 py-2 px-4 rounded-full bg-slate-900">
         <p className="text-sm">© 2024 SDN.</p>
         <div className="flex justify-center space-x-4 mt-2">

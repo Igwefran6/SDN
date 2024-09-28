@@ -71,7 +71,7 @@ const Header = ({ backgroundColor = "bg-slate-800" }) => {
   return (
     <header
       className={
-        "text-white p-6 pb-4 flex items-baseline gap-8 relative z-40 w-full no-copy " +
+        "text-white p-6 pb-4 flex items-baseline gap-8 relative z-40 w-full no-copy lg:px-24 " +
         backgroundColor
       }
     >
@@ -92,7 +92,7 @@ const Header = ({ backgroundColor = "bg-slate-800" }) => {
           <LinkButton text="Home" path="/" />
           <div ref={learningGuideRef}>
             <LinkButton
-              text="Digital Security guide"
+              text="Digital security guide"
               extraStyles="dropdown"
               handleClick={handlelearningGuide}
             />
@@ -104,10 +104,10 @@ const Header = ({ backgroundColor = "bg-slate-800" }) => {
             >
               {" "}
               <Link
-                to="/Course-content"
+                to="/get-started"
                 className="w-full text-white bg-blue-500 dark:bg-gray-900 block rounded-lg px-2 py-1 hover:scale-105 transition-all"
               >
-                Course
+                Get Started
               </Link>
               <Link
                 to="/learning-path"
