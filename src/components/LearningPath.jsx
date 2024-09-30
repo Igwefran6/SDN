@@ -3,10 +3,12 @@ import LearningStage from "./LearningStage";
 import Footer from "./Footer";
 import Header from "./Header";
 import Lesson from "./Lesson";
+import Icon from "@mdi/react";
+import { mdiClose, mdiCog } from "@mdi/js";
 
 const stages = [
   {
-    title: "Introduction to Digital Security and Privacy",
+    title: "1. Introduction to Digital Security and Privacy",
     description:
       "Learn the fundamental concepts of digital security and privacy in the context of personal and organizational data.",
     steps: [
@@ -16,7 +18,7 @@ const stages = [
     ],
   },
   {
-    title: "Digital Currency and Its Security Concerns",
+    title: "2. Digital Currency and Its Security Concerns",
     description:
       "Discover the security challenges related to digital currencies and how to address them.",
     steps: [
@@ -26,7 +28,7 @@ const stages = [
     ],
   },
   {
-    title: "Security and Privacy in Nigeria's Digital Ecosystem",
+    title: "3. Security and Privacy in Nigeria's Digital Ecosystem",
     description:
       "Understand the unique digital security and privacy challenges within Nigeria's technological landscape.",
     steps: [
@@ -37,7 +39,7 @@ const stages = [
   },
   {
     title:
-      "Analysis and Design of Security and Privacy Issues in Digital Currency",
+      "4. Analysis and Design of Security and Privacy Issues in Digital Currency",
     description:
       "Delve into the technical aspects of designing secure digital currency systems, specifically in Nigeria.",
     steps: [
@@ -50,6 +52,8 @@ const stages = [
 
 const LearningPath = () => {
   const pageRef = useRef(null);
+  const [resetBtn, setResetBtn] = useState(false);
+  const cogOrClose = !resetBtn ? mdiCog : mdiClose;
   const [currentStage, setCurrentStage] = useState(() => {
     const savedStage = localStorage.getItem("currentStage");
     return savedStage !== null ? JSON.parse(savedStage) : 0;
@@ -94,14 +98,40 @@ const LearningPath = () => {
   };
   const scrollToTop = () => {
     if (pageRef.current) {
-      pageRef.current.scrollIntoView({ behavior: "smooth" });
+      pageRef.current.scrollIntoView();
     }
   };
 
   return (
     <>
       <Header />
-      <div className="container mx-auto p-6 min-h-[80svh]" ref={pageRef}>
+      <div
+        className="container mx-auto p-6 min-h-[80svh] relative"
+        ref={pageRef}
+      >
+        <div className="absolute flex no-copy">
+          <Icon
+            className="cursor-pointer active:scale-75 transition-all"
+            path={cogOrClose}
+            size="24px"
+            onClick={() => setResetBtn((prev) => !prev)}
+          />
+          {resetBtn && (
+            <button
+              className="px-4 py-2 bg-green-600 rounded-lg font-semibold text-white m-2 active:scale-95 transition-all"
+              onClick={() => {
+                if (confirm("Do you really want to reset progress?")) {
+                  localStorage.clear();
+                  setResetBtn((prev) => !prev);
+                } else {
+                  setResetBtn((prev) => !prev);
+                }
+              }}
+            >
+              Reset progress
+            </button>
+          )}
+        </div>
         <h1 className="text-4xl font-bold text-center text-blue-700 mb-8">
           Learning Path
         </h1>
