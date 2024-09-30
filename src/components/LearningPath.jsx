@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import LearningStage from "./LearningStage";
 import Footer from "./Footer";
 import Header from "./Header";
@@ -49,6 +49,7 @@ const stages = [
 ];
 
 const LearningPath = () => {
+  const pageRef = useRef(null);
   const [currentStage, setCurrentStage] = useState(() => {
     const savedStage = localStorage.getItem("currentStage");
     return savedStage !== null ? JSON.parse(savedStage) : 0;
@@ -81,19 +82,26 @@ const LearningPath = () => {
   const nextStage = () => {
     if (currentStage < stages.length - 1) {
       setCurrentStage(currentStage + 1);
+      scrollToTop();
     }
   };
 
   const prevStage = () => {
     if (currentStage > 0) {
       setCurrentStage(currentStage - 1);
+      scrollToTop();
+    }
+  };
+  const scrollToTop = () => {
+    if (pageRef.current) {
+      pageRef.current.scrollIntoView({ behavior: "smooth" });
     }
   };
 
   return (
     <>
       <Header />
-      <div className="container mx-auto p-6 min-h-[80svh]">
+      <div className="container mx-auto p-6 min-h-[80svh]" ref={pageRef}>
         <h1 className="text-4xl font-bold text-center text-blue-700 mb-8">
           Learning Path
         </h1>
