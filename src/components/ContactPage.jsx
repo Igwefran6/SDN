@@ -51,17 +51,17 @@ const ContactPage = ({ showContactPage }) => {
       <Header />
       <div
         className={
-          "p-4 w-full bg-gray-100 flex items-center justify-center dark:bg-slate-800 min-h-svh "
+          "p-4 w-full flex items-center justify-center bg-slate-800 min-h-svh "
         }
       >
-        <div className="bg-white p-8 rounded-lg shadow-lg  dark:bg-gray-500 flex-1 max-sm:max-w-[380px] max-w-[600px]">
-          <h2 className="text-2xl font-bold mb-6 text-gray-800 dark:text-gray-200">
+        <div className=" p-8 rounded-lg shadow-lg  bg-gray-500 flex-1 max-sm:max-w-[380px] max-w-[600px]">
+          <h2 className="text-2xl font-bold mb-6  text-gray-200">
             Write me a feedback...
           </h2>
           <form ref={form} onSubmit={sendEmail}>
             <div className="mb-4">
               <label
-                className="block text-gray-700 text-sm font-bold mb-2 dark:text-gray-200"
+                className="block  text-sm font-bold mb-2 text-gray-200"
                 htmlFor="name"
               >
                 Name
@@ -71,12 +71,12 @@ const ContactPage = ({ showContactPage }) => {
                 id="name"
                 name="name"
                 required
-                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline dark:bg-gray-400 font-bold dark:text-gray-100"
+                className="shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline bg-gray-400 font-bold text-gray-100"
               />
             </div>
             <div className="mb-4">
               <label
-                className="block text-gray-700 text-sm font-bold mb-2 dark:text-gray-200"
+                className="block  text-sm font-bold mb-2 text-gray-200"
                 htmlFor="email"
               >
                 Email
@@ -86,12 +86,12 @@ const ContactPage = ({ showContactPage }) => {
                 id="email"
                 name="email"
                 required
-                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline dark:bg-gray-400 font-bold dark:text-gray-100"
+                className="shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline bg-gray-400 font-bold text-gray-100"
               />
             </div>
             <div className="mb-2">
               <label
-                className="block text-gray-700 text-sm font-bold mb-2 dark:text-gray-200"
+                className="block  text-sm font-bold mb-2 text-gray-200"
                 htmlFor="message"
               >
                 Message
@@ -100,7 +100,7 @@ const ContactPage = ({ showContactPage }) => {
                 id="message"
                 name="message"
                 required
-                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline h-32 dark:bg-gray-400 font-bold dark:text-gray-100"
+                className="shadow appearance-none border rounded w-full py-2 px-3  leading-tight focus:outline-none focus:shadow-outline h-32 bg-gray-400 font-bold text-gray-100"
               ></textarea>
             </div>
 

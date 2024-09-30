@@ -5,64 +5,82 @@ import Header from "./Header.jsx";
 
 const About = () => {
   return (
-    <>
+    <div className="flex flex-col bg-[url('/images/sdn.png')] bg-cover no-copy ">
       <Header />
-      <div className="mx-auto p-6 bg-white shadow-md dark:bg-gray-600 dark:text-gray-200 pr-64">
+      <div className="mx-auto p-6  shadow-2xl bg-slate-800 text-gray-200 lg:pr-64 lg:px-24">
         {/* <div className="p-2 border-2 mt-2 mb-4 bg-blue-500 dark:bg-gray-900 hover:bg-gray-700 w-24">
           <Link to="/">
             <Icon className="text-white" path={mdiArrowLeft} size="24px" />
           </Link>
         </div> */}
-        <h1 className="text-3xl font-bold mb-4">About Dictle</h1>
-        <p className="mb-4 text-gray-700 dark:text-gray-200">
-          Dictle is an innovative lightweight dictionary app designed to provide
-          users with a comprehensive and user-friendly tool for enhancing their
-          vocabulary and understanding of the English language. Whether you're a
-          student, writer, or just someone with a passion for words, Dictle is
-          the perfect companion to help you find the meanings, synonyms,
-          antonyms, and usage examples for any word you encounter.
-        </p>
-        <p className="mb-4 text-gray-700 dark:text-gray-200">
-          Dictle is built with simplicity and efficiency in mind. With a clean
-          and intuitive interface, Dictle ensures that you can quickly find the
-          information you need without any hassle. Whether you're writing an
-          essay, drafting a novel, or simply trying to understand a new word
-          you've come across, Dictle is here to assist you every step of the
-          way.
-        </p>
+        <div className="container mx-auto p-4 pt-6 mt-10 rounded ">
+          <h1 className="text-3xl font-bold  mb-4">
+            Welcome to SecuredigiNaija (SDN)
+          </h1>
 
-        <h2 className="text-2xl font-semibold mb-3">Features</h2>
-        <ul className="list-disc list-inside mb-4 text-gray-700 dark:text-gray-200">
-          <li className="mb-2">
-            <strong>Word Definitions:</strong> Access precise and clear
-            definitions for any word, ensuring you understand the exact meaning
-            and nuances.
-          </li>
-          <li className="mb-2">
-            <strong>Synonyms and Antonyms:</strong> Explore a wide range of
-            synonyms and antonyms to expand your vocabulary and find the perfect
-            word for any context.
-          </li>
-          <li className="mb-2">
-            <strong>Example Sentences:</strong> See how words are used in
-            context with example sentences that help illustrate proper usage and
-            improve your comprehension.
-          </li>
-        </ul>
-        <p className="mb-4 text-gray-700 dark:text-gray-200">
-          The goal is to provide you with a powerful tool that makes learning
-          new words enjoyable and accessible. Whether you're looking to impress
-          with your eloquence or simply trying to avoid misunderstandings,
-          Dictle is your go-to resource for all things related to words.
-        </p>
-        <p className="text-gray-700 dark:text-gray-200">
-          If you're a developer like me you can improve Dictle by adding more
-          funtionalites. All you have to do is fork it from github repo, make
-          improvements and create a pull request. Thanks.
-        </p>
+          <p className="text-lg mb-8">
+            Empowering You to Stay Safe in a Digital World
+          </p>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div className=" p-6 rounded shadow-2xl">
+              <h2 className="text-2xl font-bold mb-4">Our Mission</h2>
+              <p className="text-lg ">
+                To bridge the knowledge gap in digital security and privacy,
+                Securediginaija (SDN) aims to foster a culture of responsible
+                innovation while safeguarding Nigeria's digital landscape. In
+                today's interconnected world, understanding the intricacies of
+                digital security is essential for protecting personal and
+                organizational assets against evolving threats.
+              </p>
+              <br />
+              <p>
+                At SDN, we believe that education is the cornerstone of a secure
+                digital environment.
+              </p>
+            </div>
+
+            <div className="p-6 rounded shadow-2xl">
+              <h2 className="text-2xl font-bold  mb-4">What We Offer</h2>
+              <ul className="list-disc pl-4 text-lg ">
+                <li>
+                  Interactive Courses: Engaging tutorials on digital security,
+                  privacy, and cryptocurrency best practices
+                </li>
+                <li>
+                  Expert Insights: Regular updates from renowned security
+                  experts and researchers
+                </li>
+                <li>
+                  Resource Library: Access to relevant research papers,
+                  articles, and industry reports
+                </li>
+                <li>
+                  Community Forum: Connect with peers, ask questions, and share
+                  experiences
+                </li>
+                <li>
+                  News and Updates: Stay informed on the latest digital security
+                  and privacy developments in Nigeria
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="mt-8">
+            <h2 className="text-2xl font-bold mb-4">Who Should Join</h2>
+            <ul className="list-disc pl-4 text-lg ">
+              <li>Individuals concerned about digital privacy and security</li>
+              <li>Businesses handling sensitive customer data</li>
+              <li>Developers and innovators in the digital currency space</li>
+              <li>Policy makers and regulators</li>
+              <li>Anyone interested in staying safe online</li>
+            </ul>
+          </div>
+        </div>
       </div>
       <Footer />
-    </>
+    </div>
   );
 };
 

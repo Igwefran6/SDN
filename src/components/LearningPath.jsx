@@ -1,56 +1,57 @@
-// src/components/LearningPath.js
 import React, { useState, useEffect } from "react";
 import LearningStage from "./LearningStage";
 import Footer from "./Footer";
 import Header from "./Header";
+import Lesson from "./Lesson";
 
 const stages = [
   {
-    title: "Foundational Stage (Beginners)",
+    title: "Introduction to Digital Security and Privacy",
     description:
-      "Start with learning the basics of grammar and essential vocabulary.",
+      "Learn the fundamental concepts of digital security and privacy in the context of personal and organizational data.",
     steps: [
-      "Learn basic grammar: sentence structure, tenses, and parts of speech.",
-      "Use beginner apps like Duolingo, Babbel.",
-      "Practice speaking simple phrases daily.",
+      "Understand the basics of cybersecurity: threats, vulnerabilities, and risk management.",
+      "Explore key concepts of privacy, including data protection and confidentiality.",
+      "Learn about common security practices such as encryption, firewalls, and antivirus software.",
     ],
   },
   {
-    title: "Basic Conversational Level",
+    title: "Digital Currency and Its Security Concerns",
     description:
-      "Focus on pronunciation, expand your listening and speaking abilities.",
+      "Discover the security challenges related to digital currencies and how to address them.",
     steps: [
-      "Master English sounds and challenging pronunciations.",
-      "Engage in simple conversations with language partners.",
-      "Watch beginner-level TV shows with subtitles.",
+      "Learn the basics of digital currencies (cryptocurrency, central bank digital currency).",
+      "Understand the security issues specific to digital transactions and blockchain technology.",
+      "Examine real-world case studies of breaches in digital currency systems.",
     ],
   },
   {
-    title: "Intermediate Stage",
-    description: "Advance grammar knowledge, vocabulary, and writing skills.",
+    title: "Security and Privacy in Nigeria's Digital Ecosystem",
+    description:
+      "Understand the unique digital security and privacy challenges within Nigeria's technological landscape.",
     steps: [
-      "Expand vocabulary and learn idiomatic expressions.",
-      "Watch movies in English without subtitles.",
-      "Start writing journals or short essays.",
+      "Explore the current digital security infrastructure in Nigeria.",
+      "Learn about Nigeria's data protection laws and regulations (such as NDPR).",
+      "Analyze local risks and challenges such as cybercrime and data breaches.",
     ],
   },
   {
-    title: "Advanced Fluency Stage",
+    title:
+      "Analysis and Design of Security and Privacy Issues in Digital Currency",
     description:
-      "Master complex grammar, engage in debates, and read more advanced material.",
+      "Delve into the technical aspects of designing secure digital currency systems, specifically in Nigeria.",
     steps: [
-      "Learn complex grammar topics like subjunctive mood.",
-      "Engage in public speaking and debates.",
-      "Watch TED Talks and documentaries without subtitles.",
+      "Analyze the design of Nigeria's central bank digital currency (CBDC) and its security framework.",
+      "Explore privacy-preserving technologies for digital currencies.",
+      "Evaluate existing solutions and propose improvements to ensure stronger security and privacy protections in digital currencies.",
     ],
   },
 ];
 
 const LearningPath = () => {
-  // Initialize state with data from localStorage or default values
   const [currentStage, setCurrentStage] = useState(() => {
     const savedStage = localStorage.getItem("currentStage");
-    return savedStage !== null ? JSON.parse(savedStage) : 0; // Default to 0 if not found
+    return savedStage !== null ? JSON.parse(savedStage) : 0;
   });
 
   const [completedStages, setCompletedStages] = useState(() => {
@@ -60,7 +61,6 @@ const LearningPath = () => {
       : [];
   });
 
-  // Update localStorage whenever the current stage or completed stages change
   useEffect(() => {
     localStorage.setItem("currentStage", JSON.stringify(currentStage));
   }, [currentStage]);
@@ -69,7 +69,6 @@ const LearningPath = () => {
     localStorage.setItem("completedStages", JSON.stringify(completedStages));
   }, [completedStages]);
 
-  // Handle marking the current stage as completed
   const markAsComplete = () => {
     setCompletedStages((prev) => {
       if (!prev.includes(currentStage)) {
@@ -79,14 +78,12 @@ const LearningPath = () => {
     });
   };
 
-  // Handle going to the next stage
   const nextStage = () => {
     if (currentStage < stages.length - 1) {
       setCurrentStage(currentStage + 1);
     }
   };
 
-  // Handle going to the previous stage
   const prevStage = () => {
     if (currentStage > 0) {
       setCurrentStage(currentStage - 1);
@@ -100,15 +97,35 @@ const LearningPath = () => {
         <h1 className="text-4xl font-bold text-center text-blue-700 mb-8">
           Learning Path
         </h1>
-
-        {/* Render the current stage */}
         <LearningStage
           title={stages[currentStage].title}
           description={stages[currentStage].description}
           steps={stages[currentStage].steps}
-        />
+        />{" "}
+        <div className="flex justify-between mt-4">
+          <button
+            onClick={prevStage}
+            disabled={currentStage === 0}
+            className={`px-4 mb-4 py-2 bg-gray-300 rounded-lg ${
+              currentStage === 0 ? "opacity-50" : "hover:bg-gray-400"
+            }`}
+          >
+            Previous
+          </button>
 
-        {/* Navigation buttons */}
+          <button
+            onClick={nextStage}
+            disabled={currentStage === stages.length - 1}
+            className={`px-4 mb-4 py-2 bg-blue-500 text-white rounded-lg ${
+              currentStage === stages.length - 1
+                ? "opacity-50"
+                : "hover:bg-blue-600"
+            }`}
+          >
+            Next
+          </button>
+        </div>
+        <Lesson currentStage={currentStage} />
         <div className="flex justify-between mt-4">
           <button
             onClick={prevStage}
@@ -132,16 +149,12 @@ const LearningPath = () => {
             Next
           </button>
         </div>
-
-        {/* Mark as complete */}
         <button
           onClick={markAsComplete}
           className="mt-4 px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600"
         >
           Mark as Complete
         </button>
-
-        {/* Show completion status */}
         <div className="mt-4">
           {completedStages.includes(currentStage) ? (
             <p className="text-green-600">You have completed this stage!</p>
@@ -149,8 +162,6 @@ const LearningPath = () => {
             <p className="text-red-600">This stage is not completed yet.</p>
           )}
         </div>
-
-        {/* Progress indicator */}
         <div className="mt-4">
           <p>
             Progress: {completedStages.length}/{stages.length} stages completed
@@ -165,6 +176,7 @@ const LearningPath = () => {
           </div>
         </div>
       </div>
+
       <Footer />
     </>
   );

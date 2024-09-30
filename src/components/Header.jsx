@@ -105,13 +105,13 @@ const Header = ({ backgroundColor = "bg-slate-800" }) => {
               {" "}
               <Link
                 to="/get-started"
-                className="w-full text-white bg-blue-500 dark:bg-gray-900 block rounded-lg px-2 py-1 hover:scale-105 transition-all"
+                className="w-full text-white  bg-gray-900 block rounded-lg px-2 py-1 hover:scale-105 transition-all"
               >
                 Get Started
               </Link>
               <Link
                 to="/learning-path"
-                className="w-full text-white bg-blue-500 dark:bg-gray-900 block rounded-lg px-2 py-1 hover:scale-105 transition-all"
+                className="w-full text-white  bg-gray-900 block rounded-lg px-2 py-1 hover:scale-105 transition-all"
               >
                 Learning path
               </Link>
@@ -132,7 +132,7 @@ const Header = ({ backgroundColor = "bg-slate-800" }) => {
             >
               <Link
                 to="/quiz"
-                className="w-full text-white bg-blue-500 dark:bg-gray-900 block rounded-lg px-2 py-1 hover:scale-105 transition-all"
+                className="w-full text-white  bg-gray-900 block rounded-lg px-2 py-1 hover:scale-105 transition-all"
               >
                 Security Test
               </Link>
@@ -140,6 +140,7 @@ const Header = ({ backgroundColor = "bg-slate-800" }) => {
           </div>
 
           <LinkButton text="Feedback" path="/feedback" />
+          <LinkButton text="About" path="/about" />
         </ul>
       </nav>
     </header>

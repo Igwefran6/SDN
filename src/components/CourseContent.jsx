@@ -1,4 +1,3 @@
-// src/components/CourseContent.js
 import React from "react";
 import { Link } from "react-router-dom";
 import Footer from "./Footer";
@@ -19,28 +18,28 @@ const CourseContent = () => {
           </h2>
           <ul className="list-disc pl-5 space-y-2 text-gray-700">
             <li>
-              Develop a strong understanding of English grammar, including
-              sentence structures and tenses.
+              Fundamentals of digital security and privacy, including common
+              threats and vulnerabilities.
             </li>
             <li>
-              Expand your vocabulary to effectively communicate in daily
-              conversations.
+              How to protect personal and organizational data using key
+              cybersecurity practices like encryption and firewalls.
             </li>
             <li>
-              Improve your pronunciation and listening skills through guided
-              practice.
+              Explore the security challenges surrounding digital currencies,
+              such as blockchain and transaction security.
             </li>
             <li>
-              Write more confidently by learning intermediate and advanced
-              grammar concepts.
+              Gain insights into Nigeria’s digital ecosystem, focusing on local
+              laws, data protection regulations, and risks.
             </li>
             <li>
-              Engage in discussions and debates to improve your speaking and
-              comprehension skills.
+              Analyze the security design of digital currency systems,
+              specifically Nigeria’s central bank digital currency (CBDC).
             </li>
             <li>
-              Watch and understand advanced-level English media like TED Talks
-              and documentaries.
+              Learn how to design privacy-preserving solutions for digital
+              currency systems while mitigating security risks.
             </li>
           </ul>
         </div>
