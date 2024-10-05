@@ -108,6 +108,9 @@ function Home() {
             className="fixed right-24 bottom-1/2 max-md:bottom-72 max-md:-right-24 translate-y-1/2 shake cursor-pointer active:scale-90 transition-all"
             onClick={addRandomTip}
           >
+            <span className="absolute bottom-0 right-1/2 translate-x-1/2 text-sm">
+              Click me
+            </span>
             <Icon path={mdiLock} size="256px" />
           </div>
 

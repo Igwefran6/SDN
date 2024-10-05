@@ -76,9 +76,16 @@ const Header = ({ backgroundColor = "bg-slate-800" }) => {
         backgroundColor
       }
     >
-      <h1 className="text-2xl font-bold flex bg-slate-800 px-4 py-1 rounded-full hover:scale-105 transition-all cursor-pointer">
+      <div className="relative text-2xl font-bold flex items-center bg-slate-800 px-4 py-1 rounded-full group transition-all cursor-pointer">
         SDN.
-      </h1>
+        <a
+          href="mailto:igwefran6@gmail.com"
+          className="absolute text-[11px] font-normal bg-black text-white top-12 text-center rounded-lg w-36 bg-center opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+        >
+          Contact developer
+        </a>
+      </div>
+
       <div className="absolute right-6 md:hidden z-50">
         <Icon
           onClick={() => {
