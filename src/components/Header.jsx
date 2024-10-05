@@ -27,6 +27,7 @@ const Header = ({ backgroundColor = "bg-slate-800" }) => {
   const [learningGuide, setlearningGuide] = useState(false);
   const learningToolsRef = useRef(null);
   const learningGuideRef = useRef(null);
+  const menuToggleRef = useRef(null);
   const [menu, setMenu] = useState(false);
   const icon = menu ? mdiClose : mdiMenu;
 
@@ -71,7 +72,7 @@ const Header = ({ backgroundColor = "bg-slate-800" }) => {
   return (
     <header
       className={
-        "text-white p-6 pb-4 flex items-baseline gap-8 relative z-40 w-full no-copy lg:px-24 " +
+        "text-white p-6 pb-4 flex items-baseline gap-8 relative z-30 w-full no-copy lg:px-24 " +
         backgroundColor
       }
     >
@@ -80,13 +81,16 @@ const Header = ({ backgroundColor = "bg-slate-800" }) => {
       </h1>
       <div className="absolute right-6 md:hidden z-50">
         <Icon
-          onClick={() => setMenu((prev) => !prev)}
+          onClick={() => {
+            setMenu((prev) => !prev);
+          }}
           path={icon}
           size="32px"
           color="white"
+          ref={menuToggleRef}
         />
       </div>
-      <MenuForSm menu={menu} />
+      <MenuForSm menu={menu} setMenu={setMenu} menuToggleRef={menuToggleRef} />
       <nav className="max-sm:hidden">
         <ul className="flex space-x-4 font-semibold">
           <LinkButton text="Home" path="/" />

@@ -1,14 +1,31 @@
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import Icon from "@mdi/react";
 import { mdiLock } from "@mdi/js";
 
+function Tip({ fadeOut, tip, i }) {
+  const x = i + "px";
+  const y = i + "px";
+
+  return (
+    <div
+      style={{
+        transform: `translate(${x}, ${y})`,
+        opacity: fadeOut ? 0 : 1,
+        transition: "opacity 0.5s",
+      }}
+      className="fixed lg:right-24 lg:bottom-16 p-6 w-72 h-36 bg-white rounded-lg shadow-lg border"
+    >
+      <h2 className="text-lg font-bold text-gray-800 mb-2">Security Tip</h2>
+      <p className="text-gray-600 text-sm">{tip}</p>
+    </div>
+  );
+}
+
 function Home() {
-  const [showPopup, setShowPopup] = useState(false); // State for showing the popup
-  const [tip, setTip] = useState(""); // State for the current tip
-  const [fadeOut, setFadeOut] = useState(false); // State for fade-out animation
+  const [tips, setTips] = useState([]);
 
   // List of digital security tips
   const securityTips = [
@@ -18,33 +35,55 @@ function Home() {
     "Be cautious of phishing emails and messages.",
     "Keep your software and devices up-to-date.",
     "Avoid using public Wi-Fi for sensitive transactions.",
+    "Use strong, unique passwords for all accounts.",
+    "Monitor your account activity regularly.",
+    "Set up account alerts for suspicious transactions.",
+    "Use a VPN (Virtual Private Network) on public Wi-Fi.",
+    "Disable location services for sensitive apps.",
+    "Use encryption for sensitive files and communications.",
+    "Regularly back up important data.",
+    "Use secure payment methods online (e.g., PayPal).",
+    "Verify the authenticity of websites and emails.",
+    "Avoid clicking suspicious links or downloads.",
+    "Use antivirus software and scan regularly.",
+    "Set screen lock timeouts on devices.",
+    "Use a firewall to block unauthorized access.",
+    "Limit social media sharing to minimize identity theft.",
+    "Update your browser and plugins regularly.",
+    "Use secure protocols (HTTPS) for online transactions.",
+    "Use a reputable security suite for comprehensive protection.",
+    "Dispose of sensitive documents securely (shredding).",
+    "Be wary of public computer usage for sensitive tasks.",
   ];
 
-  // Function to display a random security tip
-  const showRandomTip = () => {
+  const addRandomTip = () => {
+    if (tips.length > 6) return;
     const randomTip =
       securityTips[Math.floor(Math.random() * securityTips.length)];
-    setTip(randomTip); // Set new random tip
-    setFadeOut(false); // Reset fade-out effect
-    setShowPopup(true); // Show the popup
 
-    // Set a timer to fade out the popup after 5 seconds
+    // Add the new tip
+    setTips((prevTips) => [...prevTips, { tip: randomTip, fadeOut: false }]);
+
+    // Set a timeout to trigger fade-out for the first tip
     const timer = setTimeout(() => {
-      setFadeOut(true); // Start fade-out effect
-      setTimeout(() => setShowPopup(false), 500); // Remove popup after fade-out
-    }, 5000);
+      setTips((prevTips) => {
+        if (prevTips.length > 0) {
+          const updatedTips = [...prevTips];
+          updatedTips[0].fadeOut = true; // Fade out the oldest tip
+          return updatedTips;
+        }
+        return prevTips;
+      });
 
-    // Clear the timer when the component is unmounted or popup is shown again
+      // Remove the tip after the fade-out transition (500ms)
+      setTimeout(() => {
+        setTips((prevTips) => prevTips.slice(1)); // Remove the first tip
+      }, 500); // This matches the duration in the fade-out transition
+    }, 4000); // Wait 3 seconds before starting the fade-out
+
+    // Cleanup the timer
     return () => clearTimeout(timer);
   };
-
-  // Trigger tip popup on lock icon click
-  useEffect(() => {
-    if (showPopup) {
-      const cleanup = showRandomTip(); // Call the function
-      return cleanup; // Ensure timer cleanup happens
-    }
-  }, [showPopup]);
 
   return (
     <div className="h-[100svh] flex flex-col bg-[url('/images/sdn.png')] bg-cover no-copy ">
@@ -67,24 +106,15 @@ function Home() {
           {/* Lock Icon */}
           <div
             className="fixed right-24 bottom-1/2 max-md:bottom-72 max-md:-right-24 translate-y-1/2 shake cursor-pointer active:scale-90 transition-all"
-            onClick={() => setShowPopup(true)}
+            onClick={addRandomTip}
           >
             <Icon path={mdiLock} size="256px" />
           </div>
 
           {/* Popup for Security Tips */}
-          {showPopup && (
-            <div
-              className={`fixed lg:right-24 lg:bottom-16 p-6 w-72 bg-white rounded-lg shadow-lg transition-opacity duration-500 ${
-                fadeOut ? "opacity-0" : "opacity-100"
-              }`}
-            >
-              <h2 className="text-lg font-bold text-gray-800 mb-2">
-                Security Tip
-              </h2>
-              <p className="text-gray-600">{tip}</p>
-            </div>
-          )}
+          {tips.map((t, i) => (
+            <Tip fadeOut={t.fadeOut} key={i} tip={t.tip} i={i} />
+          ))}
         </div>
       </div>
       <Footer />
